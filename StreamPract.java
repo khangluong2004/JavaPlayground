@@ -111,6 +111,18 @@ public class StreamPract {
                 .reduce(0, Integer::sum);
         System.out.println("Reduced to: " + combined);
 
+        // Some terminal operators return Optional type (optional objects that could be empty for representing
+        // null values)
+        System.out.println("Optional example");
+        int[] optionalTest = {1, 20, 19, 77, 8, 42, 54, 88, 84, 22, 15, 7};
+        Arrays.stream(optionalTest)
+                .filter(s -> s%2 == 0)
+                .dropWhile(s -> s < 20)
+                .findAny() // Return an Optional object containing any remaining integers in stream
+                .ifPresentOrElse(s -> System.out.println(s), () -> System.out.println("Null"));
+
+
+
     }
 
 }
